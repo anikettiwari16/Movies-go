@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %} 
+    <section class="h-100" style="background-color: #eee;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-7 rounded-5">
+              <div class="card rounded-5 text-black">
+                <div class="row g-0">
+                    <div class="card-body p-md-5 mx-md-4">
+                      <h2 class="text-uppercase text-center mb-5">Add Movie</h2>
+                      <form  action="" method="POST" enctype="multipart/form-data">   
+                        {% csrf_token %}
+                        <div class="form-outline mb-2">
+                          <label class="form-label">{{ form.name.label }}</label>
+                          {% render_field form.name class="form-control form-control-lg" placeholder="Enter Movie Name" type="text" %}
+                        </div>
+                        <div class="form-outline mb-2">
+                          <label class="form-label">{{ form.price.label }}</label>
+                          {% render_field form.price class="form-control form-control-lg" placeholder="Enter Ticket Price" type="number" %}
+                        </div>
+                        <div class="form-outline mb-2">
+                          <label class="form-label">{{ form.genres.label }}</label>
+                          {% render_field form.genres class="form-control form-control-lg" placeholder="Enter Theater Name" type="text" %}
+                        </div>
+                        <div class="form-outline mb-2">
+                          <label class="form-label">{{ form.movie_duration.label }}</label>
+                          {% render_field form.movie_duration class="form-control form-control-lg" placeholder="Enter Theater Name" type="time" step="2" %}
+                        </div>
+                        <div class="form-outline mb-2">
+                          <label class="form-label">{{ form.movie_pic.label }}</label>
+                          {% render_field form.movie_pic class="form-control form-control-lg"  %}
+                        </div>
+                        <div class="form-outline mb-2" style="height: 20%;">
+                          <label class="form-label">{{ form.description.label }}</label>
+                          {% render_field form.description class="form-control form-control-lg" placeholder="Enter Description" type="text"  rows="3" %}
+                        </div>                        
+                      <div class="d-flex justify-content-center">
+                        <input type="submit" class="btn btn-success btn-lg w-50" value="Add">
+                      </div>
+                      <p class="text-center text-muted mt-5 mb-0"><a href="{% url 'Myadmin' %}" class="fw-bold text-body">Back</a></p>                                                                  
+                    </form>
+                    </div>
+                  </div>            
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+{% endblock  %}

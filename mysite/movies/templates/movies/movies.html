@@ -1,0 +1,23 @@
+<section class="bg-light">
+    <div class="text-uppercase text-center" style="font-size: xx-large;">Movies </div>
+	<div class="card-group d-flex justify-content-center" >
+        {% for movie in movies %}
+		<a href=" {% url 'view_movie' movie.slug %} ">		
+			<div class="flip-card m-3">
+				<div class="flip-card-inner">
+				  <div class="flip-card-front">
+					<img src="{{ movie.movie_pic.url| default_if_none:'#'}}" alt="Avatar" style="width:300px;height:400px; border-radius: 30px;">
+				  </div>
+				  <div class="flip-card-back bg-dark p-3">
+					<h1 class="text-center">{{movie.name}} </h1>
+					<p>{{movie.genres}}</p>
+					<p>{{movie.movie_duration}}</p>
+					<p>We love that guy</p>
+					<p class="desc">{{movie.description}}</p>
+				  </div>
+				</div>
+			  </div>
+			</a>
+        {% endfor %}
+	</div>
+</section>

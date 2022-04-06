@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="h-100" style="background-color: #eee;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-5 rounded-5">
+              <div class="card rounded-5 text-black">
+                <div class="row g-0">
+                    <div class="card-body p-md-5 mx-md-4">
+                      <h2 class="text-uppercase text-center mb-5">City Detail</h2>
+                        <div class="d-flex form-outline mb-4 justify-content-center">
+                          <h1 class="form-label">{{city.name}}</h1>
+                          </div>
+                      <p class="text-center text-muted mt-5 mb-0"><a href="{% url 'Myadmin' %}" class="fw-bold text-body">Back</a></p>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+{% endblock  %}

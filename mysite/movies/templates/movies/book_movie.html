@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %} 
+<div class="container mb-5">
+    <h1 class="alert-danger text-center p-3">Confirm Booking</h1>
+    <div class="row">
+     <div class="col-sm-12">
+      <form action="" method="post" enctype="multipart/form-data" class="shadow p-5">
+       {% csrf_token %}
+
+       <div class="form-outline mb-4">
+        <label class="form-label">{{ form.movie.label }}</label>
+        {% render_field form.movie class="form-control form-control-lg" type="text" %}
+      </div>
+       <div class="form-outline mb-4">
+        <label class="form-label">{{ form.theater.label }}</label>
+        {% render_field form.theater class="form-control form-control-lg" type="select" %}
+      </div>
+
+       <div class="form-outline mb-4">
+        <label class="form-label">{{ form.time.label }}</label>
+        {% render_field form.time class="form-control form-control-lg" type="select" %}
+      </div>
+
+       <div class="form-outline mb-4">
+        <label class="form-label">{{ form.seat.label }}</label>
+        {% render_field form.seat class="seats" type="checkbox" %}
+      </div>
+      
+       <input type="submit" value="Submit" class="btn btn-primary w-100">
+       {% if form.non_field_errors %}
+         {% for error in form.non_field_errors %}
+          <p class="alert alert-danger my-3">{{error}}</p>
+         {% endfor %}
+       {% endif %}
+      </form>
+     </div>
+    </div>   
+   </div>
+{% endblock %}

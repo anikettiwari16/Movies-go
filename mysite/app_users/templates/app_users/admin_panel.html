@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section>
+        <div class="container">
+          <h1 class="text-center ">Admin Panel</h1>  
+           <!-- Movie Section -->
+           <div class="container d-flex justify-content-center">
+            <table style="width:100%" class="table table-bordered table-dark table-hover">
+              <caption align="top">Movies</caption>
+              <thead>                     
+              <tr>
+                <th style="width:50% ">Name</th>
+                <th colspan="3" style=" text-align: center;">Action</th>
+              </tr>
+            </thead>
+              <tbody>
+                {% for movie in movies %}
+              <tr>
+                <th>{{movie.name}}</th>
+                <td style=" text-align: center;"><a class="btn btn-secondary" href="{% url 'view_movie' movie.slug %} ">View</a></td>
+                <td style=" text-align: center;"><a class="btn btn-warning" href="{% url 'update_movie' movie.slug %}">Update</a></td>
+                <td style=" text-align: center;"><a class="btn btn-danger" href="{% url 'delete_movie' movie.slug %}">Delete</a></td>
+              </tr> 
+              {%empty%}
+              <td colspan="4">NO MOVIES CURRENTLY</td>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <td colspan="4" style="text-align: right;" >
+                <a class="btn btn-success m-5 mb-0 mt-0" href="{%url 'add_movie' %} ">ADD Movie</a>
+              </td>
+            </tfoot>          
+            </table>
+          </div>
+  
+          <!-- City Section -->
+          <div class="container d-flex justify-content-center">
+            <table style="width:100%" class="table table-bordered table-dark table-hover">
+              <caption align="top">Cities</caption>
+              <thead>                     
+              <tr>
+                <th style="width:50% ">Name</th>
+                <th colspan="3" style=" text-align: center;">Actions</th>
+              </tr>
+            </thead>
+              <tbody>
+                {% for city in cities %}
+              <tr>
+                <th>{{city.name}}</th>
+                <td style=" text-align: center;"><a class="btn btn-secondary" href="{% url 'view_city' city.slug %} ">View</a></td>
+                <td style=" text-align: center;"><a class="btn btn-warning" href="{% url 'update_city' city.slug %}">Update</a></td>
+                <td style=" text-align: center;"><a class="btn btn-danger" href="{% url 'delete_city' city.slug %}">Delete</a></td>
+              </tr>
+              {%empty%}
+              <td colspan="4">NO CITIES CURRENTLY</td>
+              {% endfor %}
+              </tbody>
+            <tfoot>
+              <td colspan="4" style="text-align: right;" >
+                <a class="btn btn-success m-5 mb-0 mt-0" href="{%url 'add_city' %} ">ADD City</a>
+              </td>
+            </tfoot>          
+            </table>
+          </div>
+  
+          <!-- Theater Section -->
+  
+          <div class="container d-flex justify-content-center">
+            <table style="width:100%" class="table table-bordered table-dark table-hover">
+              <caption align="top">Theaters</caption>
+              <thead>                     
+              <tr>
+                <th style="width:50% ">Name</th>
+                <th colspan="3" style=" text-align: center;">Action</th>
+              </tr>
+            </thead>
+              <tbody>
+                {% for theater in theaters %}
+              <tr>
+                <th>{{theater.name}}</th>
+                <td style=" text-align: center;"><a class="btn btn-secondary" href="{% url 'view_theater' theater.slug %} ">View</a></td>
+                <td style=" text-align: center;"><a class="btn btn-warning" href="{% url 'update_theater' theater.slug %}">Update</a></td>
+                <td style=" text-align: center;"><a class="btn btn-danger" href="{% url 'delete_theater' theater.slug %}">Delete</a></td>
+              </tr>
+              {%empty%}
+              <td colspan="4">NO THEATERS CURRENTLY</td>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <td colspan="4" style="text-align: right;" >
+                <a class="btn btn-success m-5 mb-0 mt-0" href="{%url 'add_theater' %} ">Add Theater</a>
+              </td>
+            </tfoot>          
+            </table>
+          </div>
+  
+        </div>
+      </section>
+          
+{% endblock  %}
